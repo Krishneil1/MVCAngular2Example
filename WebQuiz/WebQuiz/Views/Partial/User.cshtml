@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+<script src="~/Scripts/"></script>
+<div class="container">
+    <h2>User</h2>
+    <div class="dropdown">
+        <div class="form-group">
+            <label class="control-label">Filter By</label>
+            <div class="form-control"><select [(ngModel)]="selectedFilter" name="filter">
+                    <option *ngFor="let f of filters" value="{{f.value}}">{{f.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Yearly Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        <tr *ngFor="let user of users |  orderBy : selectedFilter">
+            <td id="txtEmail">{{user.Email}}</td>
+            <td id="txtEmail">{{user.FirstName}}</td>
+            <td id="txtEmail">{{user.LastName}}</td>
+            <td id="txtEmail">{{user.DateOfBirth | date}}</td>
+            <td id="txtEmail">{{user.MonthlySalary}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
